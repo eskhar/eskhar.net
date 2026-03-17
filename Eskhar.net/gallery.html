@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фотогалерея — Архив Эсхара</title>
+    <style>
+        body {
+            background-color: #1c1b21;
+            font-family: "Tahoma", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #4c66a4, #3b5998);
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 2px solid #29487d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .container {
+            width: 1100px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 25px;
+            min-height: 800px;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3b5998;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-back:hover { text-decoration: underline; }
+
+        h2 {
+            border-bottom: 2px solid #3b5998;
+            padding-bottom: 10px;
+            color: #333;
+            margin-top: 0;
+        }
+
+        /* Сетка галереи */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .photo-card {
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-info {
+            padding: 8px;
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 30px;
+        }
+
+        /* Простой лайтбокс (увеличение) */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+		/* Стили для секции альбомов */
+		.albums-section {
+			margin-top: 50px;
+			border-top: 1px solid #eee;
+			padding-top: 30px;
+		}
+
+		.album-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: 20px;
+			margin-top: 20px;
+		}
+
+		.album-card {
+			position: relative;
+			background: #fff;
+			border: 1px solid #ccc;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			color: #333;
+			transition: all 0.3s ease;
+}
+
+/* Эффект многослойности (стопка фото) */
+		.album-card::before, .album-card::after {
+			content: "";
+			position: absolute;
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+			background: #fff;
+			border: 1px solid #ccc;
+			z-index: -1;
+			transition: transform 0.3s;
+		}
+
+		.album-card:hover::before { transform: rotate(3deg); }
+		.album-card:hover::after { transform: rotate(-3deg); }
+
+		.album-card img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			margin-bottom: 10px;
+		}
+
+		.album-title {
+			font-weight: bold;
+			font-size: 14px;
+			display: block;
+			color: #3b5998;
+		}
+
+		.album-count {
+			font-size: 12px;
+			color: #777;
+		}
+        #overlay img { max-width: 90%; max-height: 90%; border: 3px solid white; }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>ФОТОГРАФИЧЕСКИЙ АРХИВ ПОСЕЛКА</h1>
+</div>
+
+<div class="container">
+    <a href="index.html" class="nav-back">← Вернуться на главную</a>
+    
+    <h2>Все фотографии (по дате добавления)</h2>
+    
+    <div class="gallery-grid">
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43591466_2242993855741944_2116142111999918080_n.jpg?_nc_cat=100&oh=00_AfxMFf_ucTXppWT4MLV2S8-FNSoBxYDI3b6bkYHWbti4LQ&oe=69DBCC81" alt="ДК Эсхар">
+            <div class="photo-info">Дом Культуры, 2015</div>
+        </div>
+
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43639670_2242993102408686_7494831456095567872_n.jpg?_nc_cat=109&oh=00_Afyk5g29RZbS03o64ZLjc2k5UC0PXGXsk-JW34FxCeqknQ&oe=69DBC6CB" alt="Площадь">
+            <div class="photo-info">Центральная площадь, 2015</div>
+        </div>
+
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43687653_2243001345741195_5837985355659214848_n.jpg?_nc_cat=111&oh=00_AfwI8GKjTGY-Abnt7cY3rZom5DEgj7ipgPAq_OMD76Y9hg&oe=69DBC6F5" alt="Улица">
+            <div class="photo-info">Вид на жилой сектор, 2015</div>
+        </div>
+
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43539721_2243001032407893_2911268381011214336_n.jpg?_nc_cat=101&oh=00_AfzVXqhvk0JoFvQ-QEQnZbwQmKq_tO8bk9XzVMUnSa1Jdg&oe=69DBADAB" alt="АТС">
+            <div class="photo-info">Заброшенное здание АТС, 2015</div>
+        </div>
+
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://via.placeholder.com/400x300/333/eee?text=Объект+ГРЭС" alt="ГРЭС">
+            <div class="photo-info">Вид на трубы ГРЭС-2</div>
+        </div>
+        <div class="photo-card" onclick="showImg(this)">
+            <img src="https://via.placeholder.com/400x300/333/eee?text=Школа" alt="Школа">
+            <div class="photo-info">Здание школы со стороны двора</div>
+        </div>
+    </div>
+	<div class="albums-section">
+        <h2>Фотоальбомы</h2>
+        <div class="album-grid">
+            
+            <a href="album-2026.html" class="album-card">
+                <img src="https://i.ibb.co/yFwhkJPD/IMG-5445.jpg" alt="2026">
+                <span class="album-title">Фото за 2026 год</span>
+                <span class="album-count">-- фото</span>
+            </a>
+
+            <a href="album-nature.html" class="album-card">
+                <img src="https://via.placeholder.com/200x150/444/fff?text=Природа" alt="Природа">
+                <span class="album-title">Северский Донец</span>
+                <span class="album-count">45 фото</span>
+            </a>
+
+            <a href="album-old.html" class="album-card">
+                <img src="https://via.placeholder.com/200x150/444/fff?text=Архив" alt="Архив">
+                <span class="album-title">Старый Эсхар (Ретро)</span>
+                <span class="album-count">112 фото</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<div id="overlay" onclick="this.style.display='none'">
+    <img id="overlay-img" src="">
+</div>
+
+<script>
+    function showImg(card) {
+        var src = card.getElementsByTagName('img')[0].src;
+        document.getElementById('overlay-img').src = src;
+        document.getElementById('overlay').style.display = 'flex';
+    }
+</script>
+
+<footer>
+    © 2010-2026 Фотоархив Эсхар. <br>
+    Сохраняем историю вместе.
+</footer>
+
+</body>
+</html>

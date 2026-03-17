@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Завод ЖБИ Эсхар — История сноса и память</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png'); /* Текстура бетона */
+            font-family: "Tahoma", sans-serif;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background: #333;
+            color: #ffcc00; /* Цвет строительной техники */
+            padding: 25px;
+            text-align: center;
+            border-bottom: 4px solid #ffcc00;
+            text-transform: uppercase;
+        }
+
+        #container {
+            width: 900px;
+            margin: 20px auto;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 30px;
+            border: 1px solid #444;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .status-lost {
+            background: #600;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+            border: 2px solid #f00;
+        }
+
+        .main-info {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .factory-text { flex: 1; line-height: 1.6; font-size: 15px; }
+
+        .archive-photo {
+            width: 350px;
+            border: 5px solid #000;
+            background: #000;
+        }
+        .archive-photo img {
+            width: 100%;
+            filter: grayscale(100%); /* Черно-белое фото завода */
+        }
+        .archive-photo:hover img {
+            filter: grayscale(0%);
+            transition: 0.5s;
+        }
+
+        h2 { color: #ffcc00; border-bottom: 1px solid #444; padding-bottom: 10px; }
+
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .timeline-table td {
+            padding: 12px;
+            border: 1px solid #333;
+        }
+        .year-cell { background: #222; font-weight: bold; width: 100px; color: #ffcc00; }
+
+        .destruction-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .destruction-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #555;
+        }
+
+        .nav-back { color: #ffcc00; text-decoration: none; font-size: 14px; }
+        .nav-back:hover { text-decoration: underline; }
+
+        footer { text-align: center; padding: 30px; color: #666; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>ЗАВОД ЖБИ ЭСХАР: УТРАЧЕННОЕ НАСЛЕДИЕ</h1>
+</div>
+
+<div id="container">
+    <a href="index.html" class="nav-back">← На главную архива</a>
+
+    <div class="status-lost">СТАТУС ОБЪЕКТА: СНЕСЕН В 2016 ГОДУ</div>
+
+    <div class="main-info">
+        <div class="factory-text">
+            <h2>О предприятии</h2>
+            <p>Завод Железобетонных Изделий (ЖБИ) в Эсхаре десятилетиями обеспечивал стройки региона качественными плитами, блоками и конструкциями. Это было мощное производство, тесно связанное с развитием ГРЭС-2 и жилого сектора поселка.</p>
+            <p>К сожалению, после остановки производства в 2000-х годах, корпуса завода начали приходить в упадок. В 2016 году было принято окончательное решение о демонтаже зданий. На данный момент от огромного предприятия остались только фундаменты и воспоминания.</p>
+        </div>
+        <div class="archive-photo">
+            <img src="https://s00.yaplakal.com/pics/pics_original/5/0/1/1687105.jpg" alt="Завод ЖБИ">
+            <p style="text-align:center; color:#888; font-size:15px; margin:5px;"><strong>Архивный снимок главного здания снаружи (наведи для цвета)</strong></p>
+			<p style="text-align:center; color:#999; font-size:20px; margin:10px;">Слева виднеется башня(Замес бетона и отлив в грузовики) которая значительно выше остального корпуса.</p>
+        </div>
+    </div>
+
+    <h2>Хронология событий</h2>
+    <table class="timeline-table">
+        <tr>
+            <td class="year-cell">1960-е</td>
+            <td>Расцвет производства. Поставка ЖБИ для строительства новых микрорайонов Эсхара.</td>
+        </tr>
+        <tr>
+            <td class="year-cell">2005</td>
+            <td>Постепенное снижение объемов заказов, консервация части цехов.</td>
+        </tr>
+        <tr>
+            <td class="year-cell">2014-15</td>
+            <td>Объект становится популярным местом для индустриального туризма (сталкерства).</td>
+        </tr>
+        <tr>
+            <td class="year-cell">2016</td>
+            <td>Полный снос корпусов. Территория зачищена.</td>
+        </tr>
+    </table>
+
+    <h2>Фотофиксация демонтажа</h2>
+    <div class="destruction-gallery">
+        <img src="https://s00.yaplakal.com/pics/pics_original/6/9/0/1687096.jpg" alt="Столовая">
+        <img src="https://s00.yaplakal.com/pics/pics_original/7/9/0/1687097.jpg" alt="Автопарк завода">
+        <img src="https://s00.yaplakal.com/pics/pics_original/8/9/0/1687098.jpg" alt="Столовая внутри">
+    </div>
+
+    <div style="margin-top: 30px; background: #252525; padding: 15px; border-left: 5px solid #ffcc00;">
+        <strong>Заметка архивариуса:</strong> Если у вас сохранились фотографии рабочих процессов или интерьеров завода до его разрушения, пожалуйста, воспользуйтесь формой загрузки на главной странице.
+    </div>
+</div>
+
+<footer>
+    Архив Эсхара // Секция промышленной истории // 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фотоархив Эсхар — Наша история</title>
+    <style>
+        /* Стиль в духе Web 2.0 */
+        body {
+            background-color: #e9ebee;
+            font-family: "Tahoma", "Geneva", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #4c66a4, #3b5998);
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #29487d;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        #container {
+            width: 960px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        #sidebar {
+            width: 200px;
+            background: #f2f2f2;
+            border-right: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        #main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px;
+            color: #3b5998;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .nav-link:hover {
+            background: #fff;
+        }
+
+        .upload-section {
+            background: #f9f9f9;
+            border: 2px dashed #bbb;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-upload {
+            background: linear-gradient(to bottom, #5cb85c, #449d44);
+            color: white;
+            border: 1px solid #398439;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .photo-card {
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            filter: sepia(20%); /* Эффект старого фото */
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #888;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Эсхар: Фотоархив Поселка</h1>
+</div>
+
+<div id="container">
+    <div id="sidebar">
+        <a href="#" class="nav-link">Главная</a>
+        <a href="#" class="nav-link">Старый Эсхар</a>
+        <a href="#" class="nav-link">ГРЭС-2</a>
+        <a href="#" class="nav-link">Природа Донца</a>
+        <a href="#" class="nav-link">Видеоархив</a>
+    </div>
+
+    <div id="main-content">
+        <h2>Добавить воспоминание</h2>
+        <div class="upload-section">
+            <p>Выберите файлы (JPG, PNG или MP4) со своего компьютера</p>
+            <input type="file" id="fileInput" multiple style="display:none">
+            <button class="btn-upload" onclick="document.getElementById('fileInput').click()">ОБЗОР И ЗАГРУЗКА</button>
+        </div>
+
+        <hr>
+
+        <h2>Последние обновления</h2>
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="https://via.placeholder.com/200x150?text=Плотина" alt="Эсхар">
+                <p><small>Вид на плотину, 2012 г.</small></p>
+            </div>
+            <div class="photo-card">
+                <img src="https://via.placeholder.com/200x150?text=Дом+Культуры" alt="Эсхар">
+                <p><small>Центральная площадь</small></p>
+            </div>
+            <div class="photo-card">
+                <img src="https://via.placeholder.com/200x150?text=Стадион" alt="Эсхар">
+                <p><small>Футбольный матч</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2010-2026 Архив Эсхара. Работает на энтузиазме.
+</footer>
+
+</body>
+</html>

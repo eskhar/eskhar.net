@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эсхар | Цифровой архив поселка</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-orange: #ff8c00; /* Цвет натриевых ламп */
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x400'); /* Замени на фото Эсхара */
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-orange);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 10px rgba(255, 140, 0, 0.5);
+        }
+
+        nav {
+            background: #000;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            border-left: 5px solid var(--accent-orange);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Галерея */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+        }
+
+        .card img, .card video {
+            width: 100%;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ЭСХАР</h1>
+        <p>Фото и видео хроника поселка</p>
+    </header>
+
+    <nav>
+        <a href="#photo">Фото</a>
+        <a href="#video">Видео</a>
+        <a href="#history">История</a>
+        <a href="#archive">Архив данных</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="photo">
+            <h2 class="section-title">Фотографии</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" alt="Промзона">
+                    <div class="card-content">
+                        <span class="card-title">Вид на ТЭС-2</span>
+                        <span class="card-date">Март 2026</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" alt="Улицы">
+                    <div class="card-content">
+                        <span class="card-title">Вечерний свет (натрий)</span>
+                        <span class="card-date">Январь 2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" style="margin-top: 60px;">
+            <h2 class="section-title">Видеоматериалы</h2>
+            <div class="grid">
+                <div class="card">
+                    <video controls>
+                        <source src="#" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="card-content">
+                        <span class="card-title">Плотина и Северский Донец</span>
+                        <span class="card-date">Октябрь 2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Архив Эсхара. Создано для сохранения истории.</p>
+    </footer>
+
+</body>
+</html>

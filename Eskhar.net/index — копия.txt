@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фотоархив Эсхар — Наша история</title>
+    <style>
+        body {
+            background-color: #e9ebee;
+            font-family: "Tahoma", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #4c66a4, #3b5998);
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 2px solid #29487d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        #container {
+            width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            min-height: 600px;
+        }
+
+        #sidebar {
+            width: 220px;
+            background: #f2f2f2;
+            border-right: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        #main-content {
+            flex: 1;
+            padding: 25px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 10px;
+            color: #3b5998;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .nav-link:hover { background: #dfe3ee; }
+
+        /* Секция загрузки */
+        .upload-section {
+            background: #fff9c4;
+            border: 2px dashed #fbc02d;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .btn-upload {
+            background: linear-gradient(to bottom, #5cb85c, #449d44);
+            color: white;
+            border: 1px solid #398439;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+        }
+
+        .btn-upload:hover { background: #449d44; }
+
+        /* Галерея */
+        #gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .media-card {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .media-card img, .media-card video {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .media-card p {
+            font-size: 12px;
+            margin-top: 8px;
+            color: #666;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Эсхар: Фото и Видео Архив</h1>
+</div>
+
+<div id="container">
+    <div id="sidebar">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="lights.html" class="nav-link">Фонари (Lighting)</a>
+        <a href="tec2.html" class="nav-link">История ГРЭС</a>
+        <a href="map.html" class="nav-link">Карта поселка</a>
+    </div>
+
+    <div id="main-content">
+        <div class="upload-section">
+            <h3>Загрузить материалы в архив</h3>
+            <p>Выбери фото или видео с телефона/ПК, чтобы добавить их на стену</p>
+            <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none">
+            <button class="btn-upload" onclick="document.getElementById('fileInput').click()">ВЫБРАТЬ ФАЙЛЫ</button>
+        </div>
+
+        <h2 style="border-bottom: 2px solid #3b5998; padding-bottom: 10px;">Архивные записи</h2>
+        <div id="gallery">
+            <div class="media-card">
+                <img src="https://via.placeholder.com/200x150?text=Эсхар" alt="Заглушка">
+                <p>Пример фото</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2010-2026 Фотоархив Эсхар. <br>
+    Создано для сохранения индустриального наследия.
+</footer>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const gallery = document.getElementById('gallery');
+
+    fileInput.addEventListener('change', function() {
+        const files = Array.from(this.files);
+
+        files.forEach(file => {
+            const reader = new FileReader();
+            const card = document.createElement('div');
+            card.className = 'media-card';
+
+            reader.onload = function(e) {
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    card.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.src = e.target.result;
+                    video.controls = true;
+                    card.appendChild(video);
+                }
+
+                const label = document.createElement('p');
+                label.textContent = file.name;
+                card.appendChild(label);
+                
+                // Добавляем новую карточку в начало галереи
+                gallery.insertBefore(card, gallery.firstChild);
+            };
+
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
+
+</body>
+</html>

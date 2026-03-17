@@ -1,0 +1,79 @@
+<section class="upload-section">
+  <h2>Загрузить медиа</h2>
+  <div class="upload-container">
+    <input type="file" id="file-input" accept="image/*,video/*" multiple>
+    <label for="file-input" class="upload-label">
+      <span>Выберите фото или видео</span>
+    </label>
+  </div>
+
+  <div id="preview-grid" class="preview-grid">
+    </div>
+</section>
+.upload-section {
+  padding: 20px;
+  background: #1a1a1a; /* Темный фон под стиль "индустриал" */
+  color: #eee;
+  border-radius: 8px;
+}
+
+.upload-container {
+  margin-bottom: 20px;
+}
+
+/* Скрываем стандартную кнопку и делаем свою красивую */
+#file-input { display: none; }
+
+.upload-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ffcc00; /* Цвет теплого натриевого света */
+  color: #000;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.upload-label:hover { background: #e6b800; }
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.preview-item {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #333;
+  border-radius: 4px;
+}const fileInput = document.getElementById('file-input');
+const previewGrid = document.getElementById('preview-grid');
+
+fileInput.addEventListener('change', function() {
+  const files = Array.from(this.files);
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    const isVideo = file.type.startsWith('video/');
+
+    reader.onload = function(e) {
+      let element;
+      
+      if (isVideo) {
+        element = document.createElement('video');
+        element.controls = true;
+      } else {
+        element = document.createElement('img');
+      }
+
+      element.src = e.target.result;
+      element.className = 'preview-item';
+      previewGrid.appendChild(element);
+    };
+
+    reader.readAsDataURL(file);
+  });
+});
