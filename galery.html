@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЭСХАР — Фотогалерея (Просмотр)</title>
+    <style>
+        body {
+            background-color: #111;
+            font-family: "Tahoma", sans-serif;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .nav-link { color: #5cb85c; text-decoration: none; font-weight: bold; }
+
+        /* Сетка галереи */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            border: 3px solid #333;
+            overflow: hidden;
+            background: #000;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: #5cb85c;
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- СТИЛИ ЛАЙТБОКСА (Увеличение) --- */
+        #lightbox {
+            display: none; /* По умолчанию скрыт */
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        #lightbox-caption {
+            position: absolute;
+            bottom: 50px;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>ФОТОГРАФИИ ПОСЕЛКА ЭСХАР</h1>
+    <a href="index.html" class="nav-link">← Вернуться в архив</a>
+</div>
+
+<div class="container">
+    <p>Нажмите на любое изображение, чтобы развернуть его на весь экран.</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1510332811516-f944a9b445d3?w=800" alt="Старый коридор ГРЭС">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1505245208761-ba872912fac0?w=800" alt="Вид на лесной массив">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1518640165980-d3e0e2ba6c2e?w=800" alt="Индустриальный пейзаж">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?w=800" alt="Бетонные конструкции">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://via.placeholder.com/800x600?text=Ваше+фото+1" alt="Описание фото 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://via.placeholder.com/800x600?text=Ваше+фото+2" alt="Описание фото 2">
+        </div>
+    </div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" src="">
+    <div id="lightbox-caption"></div>
+</div>
+
+<script>
+    function openLightbox(element) {
+        var lightbox = document.getElementById("lightbox");
+        var lbImg = document.getElementById("lightbox-img");
+        var lbCaption = document.getElementById("lightbox-caption");
+        var clickedImg = element.getElementsByTagName("img")[0];
+
+        lightbox.style.display = "flex";
+        lbImg.src = clickedImg.src;
+        lbCaption.innerHTML = clickedImg.alt;
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    // Закрытие по клавише Esc
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            closeLightbox();
+        }
+    });
+</script>
+
+</body>
+</html>

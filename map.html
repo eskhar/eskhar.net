@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карта поселка Эсхар — Интерактивный архив</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "Tahoma", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #78909c, #546e7a);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid #37474f;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        #container {
+            width: 960px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #999;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .map-wrapper {
+            border: 5px solid #ccc;
+            background: #eee;
+            margin: 20px 0;
+            position: relative;
+            height: 500px;
+        }
+
+        /* Стиль информационной панели слева */
+        .info-panel {
+            background: #e1f5fe;
+            border-left: 5px solid #03a9f4;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #0277bd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-link:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>География Эсхара: Улицы и Объекты</h1>
+</div>
+
+<div id="container">
+    <a href="index.html" class="nav-link">&larr; Вернуться на главную</a>
+
+    <div class="info-panel">
+        <strong>Инструкция:</strong> Используйте мышь для перемещения по карте. Колесико — для масштаба. 
+        На карте отмечены основные ориентиры: ГРЭС-2, плотина и жилые кварталы.
+    </div>
+
+    <div class="map-wrapper">
+        <iframe 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=36.5682%2C49.7825%2C36.6182%2C49.8125&amp;layer=mapnik&amp;marker=49.7975%2C36.5932" 
+            style="border: 1px solid black">
+        </iframe>
+    </div>
+	<div class="map-wrapper">
+        <iframe 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://wikimapia.org/#lang=en&lat=49.797846&lon=36.588550&z=15&m=w" 
+            style="border: 1px solid black">
+        </iframe>
+    </div>
+
+    <div style="text-align: right;">
+        <small><a href="https://www.openstreetmap.org/#map=15/49.7975/36.5932" target="_blank">Посмотреть полноэкранную карту (OSM)</a></small>
+    </div>
+	<div style="text-align: right;">
+        <small><a href="https://wikimapia.org/#lang=en&lat=49.797846&lon=36.588550&z=15&m=w" target="_blank">Посмотреть полноэкранную карту (Wikimapia)</a></small>
+		<p>Wikimapia - С фотографиями
+		| OSM - План поселка</p>
+    </div>
+
+    <h3>Ключевые точки:</h3>
+    <ul>
+        <li><strong>Промышленная зона:</strong> ТЭЦ-2 (ГРЭС-2) — сердце поселка.</li>
+        <li><strong>Центр:</strong> Дом Культуры и центральная площадь.</li>
+        <li><strong>Природа:</strong> Берег Северского Донца и плотина.</li>
+    </ul>
+</div>
+
+<footer>
+    Архив Эсхара &copy; 2026. Карта предоставлена OpenStreetMap community.
+</footer>
+
+</body>
+</html>

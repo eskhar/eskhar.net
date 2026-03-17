@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Эсхаровская общеобразовательная школа — Наша гордость</title>
+    <style>
+        body {
+            background-color: #f7f9fc;
+            background-image: url('https://www.transparenttextures.com/patterns/notebook.png'); /* Текстура тетрадного листа */
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            margin: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 5px solid #2980b9;
+        }
+
+        #container {
+            width: 980px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #d1d9e0;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .school-banner {
+            width: 100%;
+            height: 250px;
+            background: url('https://photos.wikimapia.org/p/00/06/93/80/39_big.jpg') center/cover;
+            border: 5px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .nav-back {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .main-flex {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .content-left { flex: 2; }
+        
+        /* Правая колонка в стиле доски объявлений */
+        .sidebar-right { 
+            flex: 1; 
+            background: #fff8e1; 
+            border: 2px solid #ffe082;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+
+        .class-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .class-photo {
+            border: 1px solid #ccc;
+            padding: 5px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .class-photo img { width: 100%; height: auto; border: 1px solid #eee; }
+
+        .notice-item {
+            margin-bottom: 15px;
+            font-size: 13px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+        }
+
+        footer { text-align: center; padding: 20px; color: #7f8c8d; font-size: 12px; }
+
+        .badge {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1 style="margin:0; color: #2c3e50;">Эсхаровская школа (ЗОШ)</h1>
+    <p style="margin:5px; color: #555;">«Знание — это сила, труд — это честь!»</p>
+</div>
+
+<div id="container">
+    <a href="index.html" class="nav-back">← На главную архива</a>
+
+    <div class="school-banner"></div>
+
+    <div class="main-flex">
+        <div class="content-left">
+            <h2>О нашей школе</h2>
+            <p>Эсхаровская общеобразовательная школа — это место, где выросли целые поколения жителей нашего поселка. Здесь мы получали первые знания, дружили и учились понимать этот мир.</p>
+            
+            <p>Школа всегда была центром культурной жизни Эсхара. В этих стенах хранятся воспоминания о выпускных балах, спортивных победах и первых школьных звонках. В нашем архиве мы собираем фотографии учителей и учеников разных лет.</p>
+
+            <h2>Фотоархив классов</h2>
+            <div class="class-gallery">
+                <div class="class-photo">
+                    <img src="https://img3.proshkolu.ru/content/media/pic/std/2000000/1073000/1072488-e63c83f2030d5104.jpg" alt="Выпуск 2005">
+                    <p><strong>Фото 2005 года</strong></p>
+                </div>
+                <div class="class-photo">
+                    <img src="https://img3.proshkolu.ru/content/media/pic/std/2000000/1073000/1072595-946430732bf44fe6.jpg" alt="Учителя">
+                    <p><strong>Учителя стоят на площади. 2005.</strong></p>
+                </div>
+                <div class="class-photo">
+                    <img src="https://www.hoff.org.ua/images/17.10.2022/05.jpg" alt="Стадион">
+                    <p><strong>Соревнования на стадионе</strong></p>
+                </div>
+                <div class="class-photo">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer55XZXP4c2TJz0OKau1R3o8kn4xThLZ4cQenhNc1Ctd1PCxH8EZQCl-7CkvWLEFEusv-E78lxCgVc0Icwj88wi_ybsEbwE4DHsjlbbaWUNJ9mhfrYTgBqwnPqkVvi0dIMh3MZB=s680-w680-h510-rw" alt="Руины">
+                    <p><strong>Последствия российской агрессии, руины школы.<strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-right">
+            <h3 style="margin-top:0; color:#d35400;">📌 Доска объявлений</h3>
+            <div class="notice-item">
+                <span class="badge">Важно</span><br>
+                <strong>15.03.2026:</strong> Идет сбор старых фотографий школы для создания музея поселка.
+            </div>
+            <div class="notice-item">
+                <strong>01.03.2026:</strong> Встреча выпускников перенесена на субботу.
+            </div>
+            <div class="notice-item">
+                <strong>Архив:</strong> Обновлен список директоров школы с 1950 по 2026 гг.
+            </div>
+            <br>
+            <div style="background: #fff; padding: 10px; border: 1px solid #ffe082; font-size: 12px;">
+                <strong>Цитата дня:</strong><br>
+                <em>"Учиться никогда не поздно!"</em>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2010-2026 Школьный архив поселка Эсхар. <br>
+    Помним каждого ученика!
+</footer>
+
+</body>
+</html>

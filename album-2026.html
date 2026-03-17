@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Альбом — Эсхар откат (2026)</title>
+    <style>
+        body {
+            background-color: #1c1b21;
+            font-family: "Tahoma", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #4c66a4, #3b5998);
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 2px solid #29487d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .container {
+            width: 1100px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 25px;
+            min-height: 800px;
+        }
+
+        /* Навигация (Хлебные крошки) */
+        .breadcrumbs {
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+        .breadcrumbs a {
+            color: #3b5998;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .breadcrumbs a:hover { text-decoration: underline; }
+
+        .album-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #3b5998;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .album-info h2 { margin: 0; color: #000; }
+        .album-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        .photo-count {
+            background: #f0f2f5;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #4b4f56;
+        }
+
+        /* Сетка фотографий */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .photo-card {
+            border: 1px solid #ddd;
+            padding: 4px;
+            background: #fff;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Лайтбокс */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #overlay img { max-width: 85%; max-height: 80%; border: 4px solid white; }
+        #caption { color: white; margin-top: 15px; font-size: 18px; }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>ФОТОГРАФИЧЕСКИЙ АРХИВ ПОСЕЛКА</h1>
+</div>
+
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="index.html">Главная</a> — <a href="gallery.html">Фотоархив</a> — Эсхар откат (2026)
+    </div>
+
+    <div class="album-header">
+        <div class="album-info">
+            <h2>Альбом: Эсхар откат (2026)</h2>
+            <div class="album-description">
+                В этом альбоме собраны снимки поселка периода зимы 2025-2026 годов. 
+                Восстановление прежнего вида поселка, с теплым заливным оранжевым светом.
+            </div>
+        </div>
+        <div class="photo-count">-- фотографий</div>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="photo-card" onclick="showImg(this, 'Восстановленный *Желтый* двор, с лампами лн.')">
+            <img src="https://i.ibb.co/yFwhkJPD/IMG-5445.jpg" alt="Ретро 1">
+        </div>
+
+        <div class="photo-card" onclick="showImg(this, 'Восстановленный *Желтый* двор, с лампами лн.')">
+            <img src="https://i.ibb.co/MDZFg42X/IMG-5657.jpg" alt="Ретро 2">
+        </div>
+
+        <div class="photo-card" onclick="showImg(this, 'Улица соборная.')">
+            <img src="https://i.ibb.co/MDGzvbCv/IMG-5663.jpg" alt="Ретро 3">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная.')">
+            <img src="https://i.ibb.co/k6gd8QyB/IMG-5451.jpg" alt="Ретро 4">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная.')">
+            <img src="https://i.ibb.co/x8PsWG7w/IMG-5664.jpg" alt="Ретро 5">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная.')">
+            <img src="https://i.ibb.co/4RykT6LF/IMG-5802.jpg" alt="Ретро 6">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная. Гаражи')">
+            <img src="https://i.ibb.co/4wxqJx8N/IMG-5797.jpg" alt="Ретро 7">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная.')">
+            <img src="https://i.ibb.co/vCkWtnZh/IMG-5635.jpg" alt="Ретро 8">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Горького.')">
+            <img src="https://i.ibb.co/gFwVNLH8/IMG-5595.jpg" alt="Ретро 9">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Мира.')">
+            <img src="https://i.ibb.co/dsLqjZpQ/IMG-5618.jpg" alt="Ретро 10">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Мира.')">
+            <img src="https://i.ibb.co/QLtbQHT/IMG-5643.jpg" alt="Ретро 11">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Площадь')">
+            <img src="https://i.ibb.co/997tsDCt/IMG-5647.jpg" alt="Ретро 12">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Центральная.')">
+            <img src="https://i.ibb.co/PvfWrYd2/IMG-5652.jpg" alt="Ретро 13">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Центральная.')">
+            <img src="https://i.ibb.co/QvDLCgQm/IMG-5654.jpg" alt="Ретро 14">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Победы.')">
+            <img src="https://i.ibb.co/GfPx0qf9/IMG-5441.jpg" alt="Ретро 15">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Горького.')">
+            <img src="https://i.ibb.co/VXQXzvK/IMG-5462.jpg" alt="Ретро 16">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица соборная. Гаражи')">
+            <img src="https://i.ibb.co/BV5Z0bDP/IMG-5565.jpg" alt="Ретро 17">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Б.Хмельницкого.')">
+            <img src="https://i.ibb.co/jPtrF5qb/IMG-5467.jpg" alt="Ретро 18">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Победы.')">
+            <img src="https://i.ibb.co/gZkR4BmF/IMG-5437.jpg" alt="Ретро 19">
+        </div>
+		<div class="photo-card" onclick="showImg(this, 'Улица Горького.')">
+            <img src="https://i.ibb.co/5xFv7S4Z/IMG-5453.jpg" alt="Ретро 20">
+        </div>
+
+        </div>
+</div>
+
+<div id="overlay" onclick="this.style.display='none'">
+    <img id="overlay-img" src="">
+    <div id="caption"></div>
+</div>
+
+<script>
+    function showImg(card, text) {
+        var src = card.getElementsByTagName('img')[0].src;
+        document.getElementById('overlay-img').src = src;
+        document.getElementById('caption').innerText = text;
+        document.getElementById('overlay').style.display = 'flex';
+    }
+</script>
+
+<footer>
+    © 2010-2026 Фотоархив Эсхар. <br>
+    Страница альбома создана для сохранения памяти поколений.
+</footer>
+
+</body>
+</html>
