@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фотоархив Эсхар</title>
+    <style>
+		@keyframes blink {
+			0% { opacity: 1; }    
+			50% { opacity: 0; }  
+			100% { opacity: 1; } 
+}
+		.blinking-text {
+			animation: blink 1s linear infinite; 
+			color: #ff0000; 
+			font-weight: bold;
+		}
+        body {
+            background-color: #adc4ff;
+            font-family: "Tahoma", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #header {
+            background: linear-gradient(to bottom, #b53b1d, #b53717);
+            color: white;
+            padding: 15px 20px;
+            border-bottom: 2px solid #29487d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+		
+		.header-content {
+			display: flex;         
+			align-items: center;   
+			justify-content: center; 
+			gap: 30px;            
+		}
+
+		.main-logo {
+			height: 100px;          
+			width: auto;           
+			border-radius: 5px;    
+			filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+		}
+
+        #container {
+            width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            min-height: 600px;
+        }
+
+        #sidebar {
+            width: 220px;
+            background: #f2f2f2;
+            border-right: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        #main-content {
+            flex: 1;
+            padding: 25px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 20px;
+            color: #3b5998;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .nav-link:hover { background: #dfe3ee; }
+
+        /* Галерея */
+        #gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+		
+		.blink {
+            animation: blinker 1s linear infinite;
+            font-weight: bold;
+        }
+
+        .media-card {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .media-card img, .media-card video {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .media-card p {
+            font-size: 12px;
+            margin-top: 8px;
+            color: #666;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 20px;
+        }
+		/* Стили для ночного режима ДНаТ */
+		body.dnat-mode {
+			background-color: #0b0b0b; 
+			color: #ff9900; 
+		}
+	
+		body.dnat-mode #container {
+			background: #1a1a1a;
+			border-color: #ff9900;
+		}
+
+		body.dnat-mode #sidebar {
+			background: #111;
+			border-right-color: #ff9900;
+		}
+
+		body.dnat-mode .nav-link {
+			color: #ff9900;
+			border-bottom-color: #333;
+		}
+
+		body.dnat-mode .nav-link:hover {
+			background: #222;
+		}
+
+		body.dnat-mode .media-card {
+			background: #222;
+			border-color: #ff9900;
+		}
+
+		body.dnat-mode h2 {
+			border-bottom-color: #ff9900 !important;
+		}
+
+		.theme-toggle {
+			background: #ff9900;
+			color: #000;
+			border: none;
+			padding: 10px 15px;
+			cursor: pointer;
+			font-weight: bold;
+			font-family: "Tahoma", sans-serif;
+			border-radius: 5px;
+			margin: 10px;
+}
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <div class="header-content">
+        <img src="https://i.ibb.co/DPqNDMV4/logo.png" alt="Лого Эсхар" class="main-logo">
+        <h1>Фото и видео архив</h1>
+    </div>
+</div>
+
+<div id="container">
+    <div id="sidebar">
+		<button class="theme-toggle" onclick="toggleTheme()">РЕЖИМ ДНаТ (ON/OFF)</button>
+        <a href="index.html" class="nav-link" style=" font-size: 30px">Д О М О Й</a>
+		<a href="gallery.html" class="nav-link" style=" font-size: 20px">Галерея</a>
+        <a href="lights.html" class="nav-link" style=" font-size: 20px">Фонари (Lighting)</a>
+        <a href="tec2.html" class="nav-link" style=" font-size: 20px">История ГРЭС</a>
+        <a href="map.html" class="nav-link" style=" font-size: 20px">Карта поселка</a>
+        <a href="s200.html" class="nav-link" style=" font-size: 20px">ВЧ ЗРК С-200</a>
+        <a href="school.html" class="nav-link" style=" font-size: 20px">Школа</a>
+        <a href="zghbik.html" class="nav-link" style=" font-size: 20px">Завод ЖБИиК</a>
+		<a href="error.html" class="nav-link" style=" font-size: 20px">Загрузить</a>
+    </div>
+	
+
+    <div id="main-content">
+	<a href="https://t.me/+ox5mOO1DVIczYjdi" style="font-family: 'Consolas', Courier, monospace; font-size: 30px; text-decoration: none; color: #0088cc;"> 
+    <strong> &rarr; [ ЗАГРУЗИТЬ ФОТО В ГРУППУ ТЕЛЕГРАММ ] &larr;</strong>
+</a>
+	<p class="blinking-text" style="font-family: 'Consolas', Courier, monospace; font-size: 25px; text-decoration: none; color: #1b367a;"><strong>Ожидание фото...</strong></p>
+        <h2 style="border-bottom: 2px solid #3b5998; padding-bottom: 10px;">Архивные записи</h2>
+        <div id="gallery">
+            <div class="media-card">
+                <img src="https://lh3.googleusercontent.com/-aUN41vi-eRE/Vf6JvGEWkRI/AAAAAAAAbIw/w5o1f1e7lfg/s912/IMG_8435.jpg" alt="Эсхар: Вьезд">
+                <p>Эсхар:Площадь (2015)<p>
+            </div>
+      <div class="media-card">
+                <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43591466_2242993855741944_2116142111999918080_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e2d261&_nc_ohc=n5j4mYRo_oEQ7kNvwG9LNgc&_nc_oc=AdlHoaYOewxTjqEXIU3F4HHYRJpiv0c9Q68H_64MVazmA8r6tx_FRvr0PgDiAqebUJo&_nc_zt=23&_nc_ht=scontent.fhrk7-1.fna&_nc_gid=inuhfsmsyUCSLKZJZKRHtg&_nc_ss=8&oh=00_AfxMFf_ucTXppWT4MLV2S8-FNSoBxYDI3b6bkYHWbti4LQ&oe=69DBCC81" alt="Эсхар: Вьезд">
+                <p>Эсхар:Дом Культуры (2015)<p>
+            </div>
+      <div class="media-card">
+                <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43639670_2242993102408686_7494831456095567872_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=e2d261&_nc_ohc=lXtX752F4H8Q7kNvwGqOrX8&_nc_oc=Adm-GNrIPweRAlq8_o7i3yNcnsF2O2a48qHB7Fj8JIA4w1VqKqpwZwkdB5qhYj4k5oU&_nc_zt=23&_nc_ht=scontent.fhrk7-1.fna&_nc_gid=NeWtAynFqmAn3osPD3N-Cw&_nc_ss=8&oh=00_Afyk5g29RZbS03o64ZLjc2k5UC0PXGXsk-JW34FxCeqknQ&oe=69DBC6CB" alt="Эсхар: Вьезд">
+                <p>Эсхар:Площадь (2015)<p>
+            </div>
+      <div class="media-card">
+                <img src="https://lh3.googleusercontent.com/-OCcir08qeSA/Vf6Jh-qHupI/AAAAAAAAbFc/r-gzcPqxnFo/s912/IMG_8393.jpg" alt="Эсхар: Вьезд">
+                <p>Эсхар: Вьезд (2015)<p>
+            </div>
+      <div class="media-card">
+                <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43687653_2243001345741195_5837985355659214848_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=e2d261&_nc_ohc=uWGo3e_KpjsQ7kNvwEcZ7zr&_nc_oc=AdkCIwJgEBjA56uPz5WzIwcXa3uVFH9310Er0ks2MGNfCuWz53z1dQF_62_X6VyuEic&_nc_zt=23&_nc_ht=scontent.fhrk7-1.fna&_nc_gid=XRS0RZyRfD4ARLexv4c-Ig&_nc_ss=8&oh=00_AfwI8GKjTGY-Abnt7cY3rZom5DEgj7ipgPAq_OMD76Y9hg&oe=69DBC6F5" alt="Эсхар: Вьезд">
+                <p>Эсхар: Центральная улица (2015)<p>
+            </div>
+      <div class="media-card">
+                <img src="https://scontent.fhrk7-1.fna.fbcdn.net/v/t1.6435-9/43539721_2243001032407893_2911268381011214336_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e2d261&_nc_ohc=LK-FqKsR1KEQ7kNvwEltDT5&_nc_oc=AdkdtUdiAujy-EbTBY2_eS9MUA_5VF0gKT36jE-m4K_WXci4QShcYgyxXxv2TUxM3zg&_nc_zt=23&_nc_ht=scontent.fhrk7-1.fna&_nc_gid=wJ9lhT3Ogl5aA8gVOmzW7g&_nc_ss=8&oh=00_AfzVXqhvk0JoFvQ-QEQnZbwQmKq_tO8bk9XzVMUnSa1Jdg&oe=69DBADAB" alt="Эсхар: Вьезд">
+                <p>Эсхар:Заброшенная АТС (2015)<p>
+            </div>
+		<div class="media-card">
+                <img src="https://s00.yaplakal.com/pics/pics_original/8/0/1/1687108.jpg" alt="Эсхар: Вьезд">
+                <p>Эсхар:Выезд с Поселка. (2012)<p>
+            </div>
+			<div class="media-card">
+                <img src="https://s00.yaplakal.com/pics/pics_original/3/3/5/1687533.jpg" alt="Эсхар: Вьезд">
+                <p>Рабочая Аллея (2012)<p>
+            </div>
+			<div class="media-card">
+                <img src="https://lh6.googleusercontent.com/proxy/03dh4oANWbdjnFY3S8T16xgbqTj2Unz4CM2m60tWfFtjQ0eGGJ71U0AaDlbnilIEm9PdP5REVhxuGDvuCebPXrgp8MqVbKoEWu2o_eC46wRQPvff-MtDuXHf7ySl1BZClRZcWCVq1DyzdKnIEzykaLJXGX4N" alt="Эсхар: Вьезд">
+                <p>Памятник Ленину Возле ДК (СНЕСЕН) (2012)<p>
+            </div>
+			<div class="media-card">
+                <img src="https://ua-energy.org/system/posts/covers/000/014/243/original/ecxar.jpg?1678969960" alt="Эсхар: Вьезд">
+                <p>ГРЭС-2<p>
+            </div>
+			
+        </div>
+    </div>
+	
+</div>
+
+
+<footer>
+    © 2010-2026 Фотоархив Эсхар. <br>
+    Создано для сохранения индустриального наследия.
+</footer>
+<script>
+function toggleTheme() {
+    document.body.classList.toggle('dnat-mode');
+}
+</script>
+
+</body>
+</html>
